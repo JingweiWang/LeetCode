@@ -1,10 +1,8 @@
 package io.github.jingweiwang.leetcode;
 
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
-
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UnitTest {
     @Test
@@ -17,16 +15,21 @@ public class UnitTest {
         int[] result1 = twoSum.solution1(givenNums, target);
         int[] result2 = twoSum.solution2(givenNums, target);
         int[] result3 = twoSum.solution3(givenNums, target);
-        assertArrayEquals(result1, realResult);
-        assertArrayEquals(result2, realResult);
-        assertArrayEquals(result3, realResult);
+        assertAll(
+                () -> assertArrayEquals(result1, realResult),
+                () -> assertArrayEquals(result2, realResult),
+                () -> assertArrayEquals(result3, realResult)
+        );
     }
 
     @Test
     public void ReverseInteger() {
         ReverseInteger reverseInteger = new ReverseInteger();
-        assertEquals(reverseInteger.reverse1(123), 321);
-        assertEquals(reverseInteger.reverse1(-123), -321);
-        assertEquals(reverseInteger.reverse1(120), 21);
+        assertAll(
+                () -> assertEquals(reverseInteger.reverse1(123), 321),
+                () -> assertEquals(reverseInteger.reverse1(-123), -321),
+                () -> assertEquals(reverseInteger.reverse1(120), 21)
+        );
+
     }
 }
